@@ -426,7 +426,7 @@
                   <img src="${item.image}" alt="${item.title}" />
                   <div class="cart-item-details">
                     <p>${item.quantity} x ${item.title}</p>
-                    <p>${Shopify.formatMoney(item.line_price, Shopify.money_format)}</p>
+                    {% # <p>${Shopify.formatMoney(item.line_price, Shopify.money_format)}</p> %}
                   </div>
                 </div>
               `;
