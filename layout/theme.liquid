@@ -293,8 +293,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
 
-
-
     <script>
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
@@ -376,8 +374,34 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+
+    <div id="cart-drawer" class="cart-drawer">
+      <div class="cart-drawer__overlay" onclick="toggleCartDrawer()"></div>
+      <div class="cart-drawer__content">
+        <button class="cart-drawer__close" onclick="toggleCartDrawer()">×</button>
+        {% section 'cart-drawer' %}
+      </div>
+    </div>
+
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-    
+    <script>
+      function toggleCartDrawer() {
+        const drawer = document.getElementById('cart-drawer');
+        drawer.classList.toggle('open');
+        document.body.classList.toggle('drawer-open');
+      }
+
+      // Hook up the cart icon
+      document.addEventListener('DOMContentLoaded', function () {
+        const cartIcon = document.querySelector('[href$="/cart"]'); // adjust if using custom class
+        if (cartIcon) {
+          cartIcon.addEventListener('click', function (e) {
+            e.preventDefault();
+            toggleCartDrawer();
+          });
+        }
+      });
+    </script>
   </body>
 </html>
