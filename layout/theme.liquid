@@ -375,31 +375,6 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
 
-    <div id="MiniCartDrawer" class="mini-cart hidden">
-      <div class="mini-cart__overlay" onclick="toggleMiniCart()"></div>
-      <div class="mini-cart__panel">
-        <h2>Your Cart</h2>
-        {% if cart.item_count > 0 %}
-          <ul>
-            {% for item in cart.items %}
-              <li>
-                <img src="{{ item.image | img_url: '100x' }}" alt="{{ item.title }}">
-                <div>
-                  <p>{{ item.product.title }}</p>
-                  <p>Qty: {{ item.quantity }}</p>
-                  <p>{{ item.line_price | money }}</p>
-                </div>
-              </li>
-            {% endfor %}
-          </ul>
-          <p>Total: {{ cart.total_price | money }}</p>
-          <a href="/cart" class="button">View Cart</a>
-        {% else %}
-          <p>Your cart is empty.</p>
-        {% endif %}
-      </div>
-    </div>
-
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <script>
