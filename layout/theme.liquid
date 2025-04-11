@@ -388,11 +388,12 @@
   </div>
 </div>
 
-    // Function to toggle the mini-cart side panel
-function toggleMiniCart() {
+function toggleMiniCart(event) {
+  event.preventDefault(); // Prevent the default anchor tag behavior (navigation)
+  
   var miniCart = document.getElementById('mini-cart-side-panel');
-  var cartIcon = document.getElementById('cart-icon-bubble');
-  // If mini-cart is closed, open it
+  
+  // Toggle the mini-cart visibility
   if (miniCart.style.right === '-300px') {
     miniCart.style.right = '0';
   } else {
@@ -400,13 +401,15 @@ function toggleMiniCart() {
   }
 }
 
-// Close mini-cart when clicking on the close button
+// Close the mini-cart when clicking the close button
 document.getElementById('close-mini-cart').addEventListener('click', function () {
   document.getElementById('mini-cart-side-panel').style.right = '-300px';
 });
 
-// Add event listener to the cart icon to toggle mini-cart
-document.getElementById('cart-icon-bubble').addEventListener('click', toggleMiniCart);
+// Add event listener to the cart icon to trigger the mini-cart toggle
+document.getElementById('cart-icon-bubble').addEventListener('click', function(event) {
+  toggleMiniCart(event); // Pass the event to prevent default behavior
+});
 
   </body>
 </html>
