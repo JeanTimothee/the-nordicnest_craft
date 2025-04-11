@@ -3603,32 +3603,3 @@ details-disclosure>details {
     transform: translateX(100%) scaleX(0);
   }
 }
-
-/* Base styles */
-.mini-cart {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  visibility: hidden;
-  transition: visibility 0.3s ease;
-}
-
-.mini-cart__overlay {
-  flex: 1;
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.mini-cart__panel {
-  width: 360px;
-  max-width: 100%;
-  background: #ffffff;
-  padding: 24px;
-  overflow-y: auto;
-  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.08);
-}
-
-/* Show class */
-.mini-cart.show {
-  visibility: visible;
-}
