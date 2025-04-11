@@ -3615,18 +3615,25 @@ details-disclosure>details {
   box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
   transition: right 0.3s ease-in-out;
   z-index: 9999;
+  overflow-y: auto; /* Allows vertical scrolling if items overflow */
 }
 
+/* Mini Cart Content */
 .mini-cart-content {
   padding: 20px;
-  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
 }
 
+/* Mini Cart Header */
 .mini-cart-side-panel h2 {
   font-size: 24px;
   margin-bottom: 20px;
+  font-weight: bold;
+  text-align: center;
 }
 
+/* Close Button */
 .close-mini-cart {
   position: absolute;
   top: 20px;
@@ -3637,6 +3644,52 @@ details-disclosure>details {
   cursor: pointer;
 }
 
+/* Item Container */
+#mini-cart-items {
+  max-height: 300px; /* Limits the visible area for items */
+  overflow-y: auto; /* Adds scroll if there are too many items */
+}
+
+/* Individual Cart Item Styles */
+.cart-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.cart-item img {
+  width: 50px; /* Smaller image size */
+  height: 50px;
+  margin-right: 10px;
+}
+
+.cart-item-details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cart-item-details p {
+  margin: 0;
+  font-size: 14px; /* Smaller font size */
+}
+
+.cart-item-details p:last-child {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Total Price Styles */
+#mini-cart-total {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Button Styles */
 .btn {
   margin-top: 20px;
   padding: 10px;
@@ -3645,8 +3698,10 @@ details-disclosure>details {
   text-align: center;
   display: block;
   width: 100%;
+  border-radius: 5px;
 }
 
 .btn:hover {
   background-color: #555;
 }
+
