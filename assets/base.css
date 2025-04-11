@@ -3603,3 +3603,50 @@ details-disclosure>details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* Mini Cart Side Panel Styles */
+.mini-cart-side-panel {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Initially hidden off-screen */
+  width: 300px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease-in-out;
+  z-index: 9999;
+}
+
+.mini-cart-content {
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.mini-cart-side-panel h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.close-mini-cart {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #555;
+}
