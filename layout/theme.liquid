@@ -411,7 +411,42 @@
       // Add event listener to the cart icon to trigger the mini-cart toggle
       document.getElementById('cart-icon-bubble').addEventListener('click', function(event) {
         toggleMiniCart(event); // Pass the event to prevent default behavior
-      });      
+      });    
+
+      function updateMiniCart() {
+        fetch('/cart.js')
+          .then(response => response.json())
+          .then(cart => {
+            const cartItemsContainer = document.getElementById('mini-cart-items');
+            const cartTotal = document.getElementById('mini-cart-total');
+            cartItemsContainer.innerHTML = '';
+            cart.items.forEach(item => {
+              const itemHTML = `
+                <div class="cart-item">
+                  <img src="${item.image}" alt="${item.title}" />
+                  <div class="cart-item-details">
+                    <p>${item.quantity} x ${item.title}</p>
+                    <p>${Shopify.formatMoney(item.line_price, Shopify.money_format)}</p>
+                  </div>
+                </div>
+              `;
+              cartItemsContainer.innerHTML += itemHTML;
+            });
+            cartTotal.innerHTML = `<strong>Total: ${Shopify.formatMoney(cart.total_price, Shopify.money_format)}</strong>`;
+          });
+      }
+      
+      // Call updateMiniCart to show cart contents when the mini-cart is opened
+      function toggleMiniCart() {
+        var miniCart = document.getElementById('mini-cart-side-panel');
+        if (miniCart.style.right === '-300px') {
+          miniCart.style.right = '0';
+          updateMiniCart(); // Update cart items when opening
+        } else {
+          miniCart.style.right = '-300px';
+        }
+      }
+
     </script>
   </body>
 </html>
