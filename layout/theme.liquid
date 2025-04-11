@@ -378,6 +378,14 @@
     {%- endif -%}
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
-    
+    <div id="mini-cart-side-panel" class="mini-cart-side-panel">
+  <div class="mini-cart-content">
+    <button id="close-mini-cart" class="close-mini-cart">×</button>
+    <h2>Your Cart</h2>
+    <div id="mini-cart-items"></div>
+    <div id="mini-cart-total"></div>
+    <a href="{{ routes.cart_url }}" class="btn">Go to Cart</a>
+  </div>
+</div>
   </body>
 </html>
