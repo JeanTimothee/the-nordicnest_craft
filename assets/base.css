@@ -3608,14 +3608,16 @@ details-disclosure>details {
 .mini-cart-side-panel {
   position: fixed;
   top: 0;
-  right: -300px; /* Initially hidden off-screen */
-  width: 300px;
+  right: -400px;
+  /* Initially hidden off-screen */
+  width: 400px;
   height: 100%;
   background-color: #fff;
   box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3);
   transition: right 0.3s ease-in-out;
   z-index: 9999;
-  overflow-y: auto; /* Allows vertical scrolling if items overflow */
+  overflow-y: auto;
+  /* Allows vertical scrolling if items overflow */
 }
 
 /* Mini Cart Content */
@@ -3623,6 +3625,9 @@ details-disclosure>details {
   padding: 20px;
   height: 100%;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Mini Cart Header */
@@ -3646,8 +3651,10 @@ details-disclosure>details {
 
 /* Item Container */
 #mini-cart-items {
-  max-height: 300px; /* Limits the visible area for items */
-  overflow-y: auto; /* Adds scroll if there are too many items */
+  max-height: 300px;
+  /* Limits the visible area for items */
+  overflow-y: auto;
+  /* Adds scroll if there are too many items */
 }
 
 /* Individual Cart Item Styles */
@@ -3660,8 +3667,9 @@ details-disclosure>details {
 }
 
 .cart-item img {
-  width: 50px; /* Smaller image size */
-  height: 50px;
+  width: 60px;
+  /* Smaller image size */
+  /* height: 50px; */
   margin-right: 10px;
 }
 
@@ -3673,7 +3681,8 @@ details-disclosure>details {
 
 .cart-item-details p {
   margin: 0;
-  font-size: 14px; /* Smaller font size */
+  font-size: 14px;
+  /* Smaller font size */
 }
 
 .cart-item-details p:last-child {
@@ -3690,7 +3699,7 @@ details-disclosure>details {
 }
 
 /* Button Styles */
-.btn {
+.mini-cart-content .btn {
   margin-top: 20px;
   padding: 10px;
   background-color: #333;
@@ -3699,9 +3708,13 @@ details-disclosure>details {
   display: block;
   width: 100%;
   border-radius: 5px;
+  text-decoration: none;
 }
 
-.btn:hover {
+.mini-cart-content .btn:hover {
   background-color: #555;
 }
 
+#mini-cart-items .cart-item {
+  display: flex !important;
+}

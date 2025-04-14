@@ -293,8 +293,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flickity/2.2.2/flickity.min.css">
 
-
-
     <script>
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
@@ -380,10 +378,12 @@
 
     <div id="mini-cart-side-panel" class="mini-cart-side-panel">
       <div class="mini-cart-content">
-        <button id="close-mini-cart" class="close-mini-cart">×</button>
-        <h2>Your Cart</h2>
-        <div id="mini-cart-items"></div>
-        <div id="mini-cart-total"></div>
+        <div>
+          <button id="close-mini-cart" class="close-mini-cart">×</button>
+          <h2>Your Cart</h2>
+          <div id="mini-cart-items"></div>
+          <div id="mini-cart-total"></div>
+        </div>
         <a href="{{ routes.cart_url }}" class="btn">Go to Cart</a>
       </div>
     </div>
@@ -426,6 +426,7 @@
                   <img src="${item.image}" alt="${item.title}" />
                   <div class="cart-item-details">
                     <p>${item.quantity} x ${item.title}</p>
+                    <p>${ item.final_line_price.toString().slice(0, -2) }.00€</p>
                     {% # <p>${Shopify.formatMoney(item.line_price, Shopify.money_format)}</p> %}
                   </div>
                 </div>
@@ -446,7 +447,6 @@
           miniCart.style.right = '-300px';
         }
       }
-
     </script>
   </body>
 </html>

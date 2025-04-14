@@ -1,0 +1,126 @@
+{
+  "article": [],
+  "blog": [],
+  "brand": [],
+  "collection": [],
+  "company": [],
+  "company_location": [],
+  "location": [],
+  "market": [],
+  "order": [],
+  "page": [],
+  "product": [
+    {
+      "key": "color-pattern",
+      "namespace": "shopify",
+      "name": "Color",
+      "description": "Defines the primary color or pattern, such as blue or striped",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "plant-support-material",
+      "namespace": "shopify",
+      "name": "Plant support material",
+      "description": "Specifies the material used in plant cages or supports, like terracotta or stone",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "material",
+      "namespace": "shopify",
+      "name": "Material",
+      "description": "Defines a product's primary material, such as cotton or wool",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "desk-organizer-features",
+      "namespace": "shopify",
+      "name": "Desk organizer features",
+      "description": "Describes the specific features of a desk organizer, such as adjustable dividers or built-in compartments",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "vase-shape",
+      "namespace": "shopify",
+      "name": "Vase shape",
+      "description": "Describes the geometric or organic form of a vase, such as round or bottle",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "decoration-material",
+      "namespace": "shopify",
+      "name": "Decoration material",
+      "description": "Identifies the material used for decoration, such as sequins or feathers",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "light-temperature",
+      "namespace": "shopify",
+      "name": "Light temperature",
+      "description": "Defines the color characteristics of light sources, such as warm white or daylight",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "firmness",
+      "namespace": "shopify",
+      "name": "Firmness",
+      "description": "Defines the level of firmness in items like furniture or mattresses, e.g. extra soft, firm",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "seat-type",
+      "namespace": "shopify",
+      "name": "Seat type",
+      "description": "Describes the design of a chair or bench seat, such as padded or bucket ",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "backrest-type",
+      "namespace": "shopify",
+      "name": "Backrest type",
+      "description": "Specifies the material or style of a chair's backrest; e.g. mesh, padded",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    },
+    {
+      "key": "upholstery-material",
+      "namespace": "shopify",
+      "name": "Upholstery material",
+      "description": "Identifies the fabric used for upholstery, such as leather or velvet",
+      "type": {
+        "name": "list.metaobject_reference",
+        "category": "REFERENCE"
+      }
+    }
+  ],
+  "variant": [],
+  "shop": []
+}
