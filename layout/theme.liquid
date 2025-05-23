@@ -389,64 +389,60 @@
     </div>
 
     <script>
-      function toggleMiniCart(event) {
-        console.log(event)
-        {% # event.preventDefault(); // Prevent the default anchor tag behavior (navigation) %}
-        
-        var miniCart = document.getElementById('mini-cart-side-panel');
-        
-        // Toggle the mini-cart visibility
-        if (miniCart.style.right === '-400px') {
-          miniCart.style.right = '0';
-        } else {
-          miniCart.style.right = '-400px';
-        }
-      }
       
-      // Close the mini-cart when clicking the close button
-      document.getElementById('close-mini-cart').addEventListener('click', function () {
-        document.getElementById('mini-cart-side-panel').style.right = '-400px';
-      });
-      
-      // Add event listener to the cart icon to trigger the mini-cart toggle
-      document.getElementById('cart-icon-bubble').addEventListener('click', function(event) {
-        toggleMiniCart(event); // Pass the event to prevent default behavior
-      });    
-
       function updateMiniCart() {
         fetch('/cart.js')
-          .then(response => response.json())
-          .then(cart => {
-            const cartItemsContainer = document.getElementById('mini-cart-items');
-            const cartTotal = document.getElementById('mini-cart-total');
-            cartItemsContainer.innerHTML = '';
-            cart.items.forEach(item => {
-              const itemHTML = `
-                <div class="cart-item">
-                  <img src="${item.image}" alt="${item.title}" />
-                  <div class="cart-item-details">
-                    <p>${item.quantity} x ${item.title}</p>
-                    <p>${ item.final_line_price.toString().slice(0, -2) }.00€</p>
-                    {% # <p>${Shopify.formatMoney(item.line_price, Shopify.money_format)}</p> %}
-                  </div>
+        .then((response) => response.json())
+        .then((cart) => {
+          const cartItemsContainer = document.getElementById('mini-cart-items');
+          const cartTotal = document.getElementById('mini-cart-total');
+          cartItemsContainer.innerHTML = '';
+          cart.items.forEach((item) => {
+            const itemHTML = `
+            <div class="cart-item">
+              <img src="${item.image}" alt="${item.title}" />
+              <div class="cart-item-details">
+                <p>${item.quantity} x ${item.title}</p>
+                <p>${item.final_line_price.toString().slice(0, -2)}.00€</p>
                 </div>
-              `;
-              cartItemsContainer.innerHTML += itemHTML;
+                </div>
+                `;
+                cartItemsContainer.innerHTML += itemHTML;
+              });
+              {% comment %} cartTotal.innerHTML = `<strong>Total: ${Shopify.formatMoney( {% endcomment %}
+                {% comment %} cart.total_price, {% endcomment %}
+                {% comment %} Shopify.money_format {% endcomment %}
+                {% comment %} )}</strong>`; {% endcomment %}
+              });
+            }
+            
+            // Call updateMiniCart to show cart contents when the mini-cart is opened
+            {% comment %} function toggleMiniCart() {
+              var miniCart = document.getElementById('mini-cart-side-panel');
+              console.log(miniCart.style.right)
+              if (miniCart.style.right === '-400px') {
+                miniCart.style.right = '0';
+                updateMiniCart(); // Update cart items when opening
+              } else {
+                miniCart.style.right = '-400px';
+              }
+            } {% endcomment %}
+            
+            // Add event listener to the cart icon to trigger the mini-cart toggle
+            document.getElementById('cart-icon-bubble').addEventListener('click', function (event) {
+              console.log('TRIGGER');
+              var miniCart = document.getElementById('mini-cart-side-panel');
+              miniCart.style.right = '0';
+              updateMiniCart()
+              {% comment %} toggleMiniCart(event); // Pass the event to prevent default behavior {% endcomment %}
             });
-            cartTotal.innerHTML = `<strong>Total: ${Shopify.formatMoney(cart.total_price, Shopify.money_format)}</strong>`;
-          });
-      }
-      
-      // Call updateMiniCart to show cart contents when the mini-cart is opened
-      function toggleMiniCart() {
-        var miniCart = document.getElementById('mini-cart-side-panel');
-        if (miniCart.style.right === '-400px') {
-          miniCart.style.right = '0';
-          updateMiniCart(); // Update cart items when opening
-        } else {
-          miniCart.style.right = '-400px';
-        }
-      }
+            // Close the mini-cart when clicking the close button
+            document.getElementById('close-mini-cart').addEventListener('click', function () {
+              console.log('CLOSE')
+              var miniCart = document.getElementById('mini-cart-side-panel');
+              miniCart.style.right = '-400px';
+              {% comment %} toggleMiniCart(); {% endcomment %}
+            });
     </script>
   </body>
 </html>
