@@ -378,10 +378,12 @@
 
     <div id="mini-cart-side-panel" class="mini-cart-side-panel">
       <div class="mini-cart-content">
-        <div>
-          <button id="close-mini-cart" class="close-mini-cart">×</button>
-          <h2>Your Cart</h2>
-          <div id="mini-cart-items"></div>
+        <div class="mini-cart-subcontent">
+          <div>
+            <button id="close-mini-cart" class="close-mini-cart">×</button>
+            <h2>Your Cart</h2>
+            <div id="mini-cart-items"></div>
+          </div>
           <div id="mini-cart-total"></div>
         </div>
         <a href="{{ routes.cart_url }}" class="btn">Go to Cart</a>
@@ -409,12 +411,13 @@
                 `;
                 cartItemsContainer.innerHTML += itemHTML;
               });
+              cartTotal.innerHTML = `<strong>Total: ${cart.total_price.toString().slice(0, -2)}.00€</strong>`;
               {% comment %} cartTotal.innerHTML = `<strong>Total: ${Shopify.formatMoney( {% endcomment %}
                 {% comment %} cart.total_price, {% endcomment %}
                 {% comment %} Shopify.money_format {% endcomment %}
                 {% comment %} )}</strong>`; {% endcomment %}
               });
-            }
+        };
             
             // Call updateMiniCart to show cart contents when the mini-cart is opened
             {% comment %} function toggleMiniCart() {
